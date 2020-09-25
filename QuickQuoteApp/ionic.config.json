@@ -1,0 +1,7 @@
+{
+  "name": "QuickQuoteApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
