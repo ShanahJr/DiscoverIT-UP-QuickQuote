@@ -5,11 +5,22 @@
 </ion-header>
 
 <ion-content>
- 
+
   <ion-button expand='block' color='primary'>Quote Date</ion-button>
   <ion-button expand='block' color='primary'>Quote Date</ion-button>
   <ion-button expand='block' color='primary'>Quote Date</ion-button>
-  
+
+  <div class="imageContainer">
+    <img [src]="transformer()" />
+    <ion-fab vertical="bottom" horizontal="end" class="BottomRight">
+      <input type="file" #fileInput (change)="SendPictureToAPI($event)" hidden="true" accept="image/*" />
+      <ion-fab-button (click)="selectImageSource()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+  <button (click)="SendPictureToAPI()"></button>
 
   <ion-fab horizontal='end' vertical='bottom' slot='fixed'>
     <ion-fab-button color='primary'>
@@ -17,5 +28,5 @@
     </ion-fab-button>
   </ion-fab>
 
-  
+
 </ion-content>

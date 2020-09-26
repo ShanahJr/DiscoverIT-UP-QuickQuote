@@ -17,6 +17,7 @@ namespace QuickQuoteAPI
 {
     public class Startup
     {
+        readonly string MyOrigin = "MyOrigin";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,10 +29,25 @@ namespace QuickQuoteAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<QuickQuoteContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("QuickQuoteDatabase")
-                ));
+            options.UseSqlServer(Configuration.GetConnectionString("QuickQuoteDatabase")
+            ));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyOrigin, builder =>
+                {
+                    //builder.WithOrigins("http://localhost:8100");
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyOrigin();
+                });
+
+            });
+
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,6 +60,8 @@ namespace QuickQuoteAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyOrigin);
 
             app.UseAuthorization();
 

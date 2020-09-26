@@ -1,0 +1,13 @@
+.imageContainer {
+  width: 100%;
+  position: relative;
+
+  img {
+    margin: auto;
+  }
+}
+
+.BottomRight {
+  right: -5px !important;
+  bottom: -5px !important;
+}

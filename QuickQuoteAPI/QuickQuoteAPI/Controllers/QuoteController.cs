@@ -1,41 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Amazon;
+using Amazon.Rekognition;
+using Amazon.Rekognition.Model;
+using Amazon.Runtime;
+using Amazon.S3;
+using Amazon.S3.Transfer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuickQuoteAPI.Models;
-using Amazon.Rekognition;
-using Amazon.Rekognition.Model;
-using Amazon.S3;
-using System.IO;
-using Amazon;
-using Amazon.S3.Transfer;
 using QuickQuoteAPI.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 
 namespace QuickQuoteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuotesController : ControllerBase
+    public class QuoteController : ControllerBase
     {
         private readonly QuickQuoteContext _context;
 
-        public QuotesController(QuickQuoteContext context)
+        public QuoteController(QuickQuoteContext context)
         {
             _context = context;
         }
 
-        // GET: api/Quotes
+        // GET: api/Quote
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Quote>>> GetQuote()
         {
             return await _context.Quote.ToListAsync();
         }
 
-        // GET: api/Quotes/5
+        // GET: api/Quote/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Quote>> GetQuote(int id)
         {
@@ -49,7 +49,7 @@ namespace QuickQuoteAPI.Controllers
             return quote;
         }
 
-        // PUT: api/Quotes/5
+        // PUT: api/Quote/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -81,7 +81,7 @@ namespace QuickQuoteAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Quotes
+        // POST: api/Quote
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -94,7 +94,6 @@ namespace QuickQuoteAPI.Controllers
         }
 
         [HttpPost("[action]")]
-        [AllowAnonymous]
         //[Route("[action]")]
         //public async Task<ActionResult<FileVM>> PostImage(FileVM UploadedImage)
         public async Task<IActionResult> PostImage(FileVM UploadedImage)
@@ -102,7 +101,16 @@ namespace QuickQuoteAPI.Controllers
 
             byte[] bytes = Convert.FromBase64String(UploadedImage.FileAsBase64);
 
-            using (var client = new AmazonS3Client("AKIAYFOXPUFXRIBLXF4O", "kt30oEKBt35RZRxXD6rLRd2uxITL0aYX24qFXnox", RegionEndpoint.USEast1))
+            var credentials = new BasicAWSCredentials("AKIAYFOXPUFXRIBLXF4O", "kt30oEKBt35RZRxXD6rLRd2uxITL0aYX24qFXnox");
+
+            var config = new AmazonS3Config
+            {
+                RegionEndpoint = Amazon.RegionEndpoint.USEast1
+            };
+
+            var image = new Image();
+
+            using (var client = new AmazonS3Client(credentials, config ))
             {
                 using (var newMemoryStream = new MemoryStream(bytes))
                 {
@@ -117,15 +125,57 @@ namespace QuickQuoteAPI.Controllers
                     };
 
                     var fileTransferUtility = new TransferUtility(client);
-                    await fileTransferUtility.UploadAsync(uploadRequest);
+
+                    try
+                    {
+                        await fileTransferUtility.UploadAsync(uploadRequest);
+                    }
+                    catch (Exception err)
+                    {
+
+                        throw err;
+                    }
+
+                    
                 }
+            }
+
+            AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient(credentials , Amazon.RegionEndpoint.USEast1);
+
+            DetectLabelsRequest detectlabelsRequest = new DetectLabelsRequest()
+            {
+
+                Image = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = UploadedImage.FileName,
+                        Bucket = "quickquoteitem"
+                    },
+                },
+                MaxLabels = 10,
+                MinConfidence = 75F
+
+            };
+
+            try
+            {
+                DetectLabelsResponse detectLabelsResponse =
+                await rekognitionClient.DetectLabelsAsync(detectlabelsRequest);
+                //Console.WriteLine("Detected labels for " + photo);
+                foreach (Label label in detectLabelsResponse.Labels)
+                    Console.WriteLine("{0}: {1}", label.Name, label.Confidence);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             //return CreatedAtAction("GetQuote", new { id = quote.QuoteID }, quote);
             return Ok();
         }
 
-        // DELETE: api/Quotes/5
+        // DELETE: api/Quote/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Quote>> DeleteQuote(int id)
         {
