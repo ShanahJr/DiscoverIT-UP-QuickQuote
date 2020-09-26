@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jzqH0d0AEAloD8NCV4su/8C4skEWN2wYRgWzpYanc2VwH1edPaquprrMKYu4svXZsF1T1MunM30uUU/93uzRcA==",
+  "dgSpecHash": "Gjhy8sk7akNUmgecVo32ZyBJLDkoKUTfRWPpUcxE1AZXJqarzf1taaubmt4ESviNz0xR7ILy3CucIMD2T6xlOQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shana\\source\\repos\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+  "projectFilePath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shana\\.nuget\\packages\\awssdk.core\\3.5.1.18\\awssdk.core.3.5.1.18.nupkg.sha512",
     "C:\\Users\\shana\\.nuget\\packages\\awssdk.rekognition\\3.5.0.20\\awssdk.rekognition.3.5.0.20.nupkg.sha512",

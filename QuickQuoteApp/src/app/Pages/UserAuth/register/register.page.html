@@ -15,51 +15,67 @@
 <ion-content>
 
   <img src='../../../../assets/icon/LOGO3.PNG' alt=''>
-  <ion-card class='vertical-center'>
 
 
-    <ion-card-content>
-      <ion-item>
-        <ion-label position='floating'>Name:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+  <form [formGroup]="RegisterForm" (ngSubmit)="RegisterUser()">
+    <ion-card class='vertical-center'>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position='floating'>Name:</ion-label>
+          <ion-input formControlName="UserName"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Surname:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Surname:</ion-label>
+          <ion-input formControlName="UserSurname"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Email:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Email:</ion-label>
+          <ion-input formControlName="UserEmail"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Cell Phone Number:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Cell Phone Number:</ion-label>
+          <ion-input formControlName="UserCellNo"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Suburb:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Suburb:</ion-label>
+          <ion-input formControlName="UserSuburb"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Password:</ion-label>
-        <ion-input type='password'></ion-input>
-      </ion-item>
+        <p style="color: red;">{{ ConfirmationError }}</p>
+        <ion-item>
+          <ion-label position='floating'>Password:</ion-label>
+          <ion-input formControlName="UserPassword" type='password' (keyup)="
+        CheckPassword(RegisterForm.value.UserPassword, ConfirmPassword)
+      "></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position='floating'>Confirm Password:</ion-label>
-        <ion-input type='password'></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Confirm Password:</ion-label>
+          <ion-input type='password' (keyup)="
+        CheckPassword(RegisterForm.value.UserPassword, ConfirmPassword)
+      " [(ngModel)]="ConfirmPassword" [ngModelOptions]="{ standalone: true }"></ion-input>
+        </ion-item>
 
-    </ion-card-content>
-    <div class='CenterObject'>
-      <ion-button color='primary'>Sign Up</ion-button>
-    </div>
+      </ion-card-content>
+      <div class='CenterObject'>
+        <ion-button color='primary' type="submit" [disabled]="
+        !RegisterForm.valid ||
+        !CheckPassword(RegisterForm.value.UserPassword, ConfirmPassword)
+      ">
+          Sign Up</ion-button>
 
 
-  </ion-card>
+        <br />
+
+        <a [routerLink]="['/log-in']" class="forgot">Already have an Account? Login Here!</a>
+      </div>
+    </ion-card>
+  </form>
+
+
 
 </ion-content>

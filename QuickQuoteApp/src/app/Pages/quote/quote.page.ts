@@ -52,6 +52,8 @@ export class QuotePage implements OnInit {
     //const config = new AWS.Con
   }
 
+  CreateQuote() {}
+
   transformer() {
     if (this.isLogoAvailable) {
       return this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -89,25 +91,6 @@ export class QuotePage implements OnInit {
           console.log("Technically image should be by the API now");
         });
     };
-
-    //await reader.readAsDataURL(file);
-
-    //let res = reader.result.toString();
-
-    //UploadFile.FileAsBase64 = res.substring(res.indexOf(",") + 1);
-    // UploadFile.FileAsBase64 = reader.result
-    //   .toString()
-    //   .substring(reader.result.toString().indexOf(",") + 1);
-
-    //UploadFile.FileAsBase64 = await this.ConvertFile(file);
-
-    // debugger;
-
-    // this.QuoteService.UploadImage(UploadFile)
-    //   .pipe(take(1))
-    //   .subscribe((res) => {
-    //     console.log("Technically image should be by the API now");
-    //   });
   }
 
   async ConvertFile(file: File) {

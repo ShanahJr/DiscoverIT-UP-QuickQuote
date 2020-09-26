@@ -25,42 +25,42 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.CenterObject {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding-right: 2rem;
-  padding-left: 2rem;
+// .CenterObject {
+//   width: 100%;
+//   justify-content: center;
+//   align-items: center;
+//   padding-right: 2rem;
+//   padding-left: 2rem;
 
-  ion-button {
-    // margin: auto !important;
-    // float: right !important;
-    width: 100%;
-  }
-}
+//   ion-button {
+//     // margin: auto !important;
+//     // float: right !important;
+//     width: 100%;
+//   }
+// }
 
-.vertical-center {
-  margin: 0;
-  //   position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+// .vertical-center {
+//   margin: 0;
+//   //   position: absolute;
+//   top: 50%;
+//   -ms-transform: translateY(-50%);
+//   transform: translateY(-50%);
+// }
 
-ion-content {
-  padding: 1rem;
-}
+// ion-content {
+//   padding: 1rem;
+// }
 
-ion-card {
-  padding-bottom: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
+// ion-card {
+//   padding-bottom: 1rem;
+//   margin-left: 1rem;
+//   margin-right: 1rem;
+// }
 
-.verticle-align {
-  margin: 0;
-  //   position: absolute;
-  top: 5%;
-  -ms-transform: translateY(-10%);
-  transform: translateY(-10%);
-}
+// .verticle-align {
+//   margin: 0;
+//   //   position: absolute;
+//   top: 5%;
+//   -ms-transform: translateY(-10%);
+//   transform: translateY(-10%);
+// }

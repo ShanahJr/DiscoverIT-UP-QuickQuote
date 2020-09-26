@@ -24,4 +24,6 @@ export class QuoteService {
   // UploadImage(FileToUpload: FileVM) {
   //   return this.http.post<FileVM>(this.RootUrl, FileToUpload);
   // }
+
+  CreateQuote() {}
 }
