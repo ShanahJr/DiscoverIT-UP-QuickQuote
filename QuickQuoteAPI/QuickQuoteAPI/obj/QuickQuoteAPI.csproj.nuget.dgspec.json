@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\GradHack Files\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\User\\Desktop\\GradHack Files\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\User\\Desktop\\GradHack Files\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
+=======
+    "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+        "projectName": "QuickQuoteAPI",
+        "projectPath": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+        "packagesPath": "C:\\Users\\tosse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
+>>>>>>> e0999d279a6ff4009619332d2761c621176bd477
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\tosse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> e0999d279a6ff4009619332d2761c621176bd477
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +100,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+>>>>>>> e0999d279a6ff4009619332d2761c621176bd477
         }
       }
     }
