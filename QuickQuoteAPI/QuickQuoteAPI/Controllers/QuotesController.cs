@@ -6,6 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuickQuoteAPI.Models;
+using Amazon.Rekognition;
+using Amazon.Rekognition.Model;
+using Amazon.S3;
+using System.IO;
+using Amazon;
+using Amazon.S3.Transfer;
 
 namespace QuickQuoteAPI.Controllers
 {
@@ -81,6 +87,31 @@ namespace QuickQuoteAPI.Controllers
         {
             _context.Quote.Add(quote);
             await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetQuote", new { id = quote.QuoteID }, quote);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Quote>> PostImage(IFormFile file)
+        {
+            using (var client = new AmazonS3Client("yourAwsAccessKeyId", "yourAwsSecretAccessKey", RegionEndpoint.USEast1))
+            {
+                using (var newMemoryStream = new MemoryStream())
+                {
+                    file.CopyTo(newMemoryStream);
+
+                    var uploadRequest = new TransferUtilityUploadRequest
+                    {
+                        InputStream = newMemoryStream,
+                        Key = file.FileName,
+                        BucketName = "yourBucketName",
+                        CannedACL = S3CannedACL.PublicRead
+                    };
+
+                    var fileTransferUtility = new TransferUtility(client);
+                    await fileTransferUtility.UploadAsync(uploadRequest);
+                }
+            }
 
             return CreatedAtAction("GetQuote", new { id = quote.QuoteID }, quote);
         }
