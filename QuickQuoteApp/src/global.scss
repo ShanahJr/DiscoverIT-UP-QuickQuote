@@ -56,3 +56,11 @@ ion-card {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+.verticle-align {
+  margin: 0;
+  //   position: absolute;
+  top: 5%;
+  -ms-transform: translateY(-10%);
+  transform: translateY(-10%);
+}
