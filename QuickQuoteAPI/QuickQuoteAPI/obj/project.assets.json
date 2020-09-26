@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "AWSSDK.Core/3.5.1.18": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.Rekognition/3.5.0.20": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.5.1.18, 3.6.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Rekognition.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Rekognition.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.5.1.10": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.5.1.18, 3.6.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -2747,6 +2780,94 @@
     }
   },
   "libraries": {
+    "AWSSDK.Core/3.5.1.18": {
+      "sha512": "Wf+7yiBmYtiMyCUDMSnbQPkGbfB0Qc1fMldmD5dT+BQcuXDQ4LKzg4OciSCMmHeTDiFOaWS/w9hgch1BGEu5yg==",
+      "type": "package",
+      "path": "awssdk.core/3.5.1.18",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.3.5.1.18.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "lib/net35/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.pdb",
+        "lib/net35/AWSSDK.Core.xml",
+        "lib/net45/AWSSDK.Core.dll",
+        "lib/net45/AWSSDK.Core.pdb",
+        "lib/net45/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard1.3/AWSSDK.Core.dll",
+        "lib/netstandard1.3/AWSSDK.Core.pdb",
+        "lib/netstandard1.3/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.Rekognition/3.5.0.20": {
+      "sha512": "JZh87/cGW+2nXXfjavjlbNv5YE1Lzbuj12RtwSlqDSiqEn/ZLgXuiR38vmRk3gODiy653aVi6LPF4rcMhSWSCg==",
+      "type": "package",
+      "path": "awssdk.rekognition/3.5.0.20",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.Rekognition.CodeAnalysis.dll",
+        "awssdk.rekognition.3.5.0.20.nupkg.sha512",
+        "awssdk.rekognition.nuspec",
+        "lib/net35/AWSSDK.Rekognition.dll",
+        "lib/net35/AWSSDK.Rekognition.pdb",
+        "lib/net35/AWSSDK.Rekognition.xml",
+        "lib/net45/AWSSDK.Rekognition.dll",
+        "lib/net45/AWSSDK.Rekognition.pdb",
+        "lib/net45/AWSSDK.Rekognition.xml",
+        "lib/netcoreapp3.1/AWSSDK.Rekognition.dll",
+        "lib/netcoreapp3.1/AWSSDK.Rekognition.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Rekognition.xml",
+        "lib/netstandard1.3/AWSSDK.Rekognition.dll",
+        "lib/netstandard1.3/AWSSDK.Rekognition.pdb",
+        "lib/netstandard1.3/AWSSDK.Rekognition.xml",
+        "lib/netstandard2.0/AWSSDK.Rekognition.dll",
+        "lib/netstandard2.0/AWSSDK.Rekognition.pdb",
+        "lib/netstandard2.0/AWSSDK.Rekognition.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.S3/3.5.1.10": {
+      "sha512": "WTfPPQL/rEFSJStlA7mEZVl/PEkrpbywusUxPRvB7FpYq4LWLlMUrWOnBa/VqixvxIwyv54x1HmGglU0kRZ4wg==",
+      "type": "package",
+      "path": "awssdk.s3/3.5.1.10",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "awssdk.s3.3.5.1.10.nupkg.sha512",
+        "awssdk.s3.nuspec",
+        "lib/net35/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.pdb",
+        "lib/net35/AWSSDK.S3.xml",
+        "lib/net45/AWSSDK.S3.dll",
+        "lib/net45/AWSSDK.S3.pdb",
+        "lib/net45/AWSSDK.S3.xml",
+        "lib/netcoreapp3.1/AWSSDK.S3.dll",
+        "lib/netcoreapp3.1/AWSSDK.S3.pdb",
+        "lib/netcoreapp3.1/AWSSDK.S3.xml",
+        "lib/netstandard1.3/AWSSDK.S3.dll",
+        "lib/netstandard1.3/AWSSDK.S3.pdb",
+        "lib/netstandard1.3/AWSSDK.S3.xml",
+        "lib/netstandard2.0/AWSSDK.S3.dll",
+        "lib/netstandard2.0/AWSSDK.S3.pdb",
+        "lib/netstandard2.0/AWSSDK.S3.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "sha512": "Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "type": "package",
@@ -8813,6 +8934,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AWSSDK.Rekognition >= 3.5.0.20",
+      "AWSSDK.S3 >= 3.5.1.10",
       "Microsoft.EntityFrameworkCore >= 3.1.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.8",
@@ -8821,19 +8944,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shana\\.nuget\\packages\\": {}
+    "C:\\Users\\rayfr\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+      "projectUniqueName": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
       "projectName": "QuickQuoteAPI",
-      "projectPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
-      "packagesPath": "C:\\Users\\shana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
+      "projectPath": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+      "packagesPath": "C:\\Users\\rayfr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\shana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rayfr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8857,6 +8984,14 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "AWSSDK.Rekognition": {
+            "target": "Package",
+            "version": "[3.5.0.20, )"
+          },
+          "AWSSDK.S3": {
+            "target": "Package",
+            "version": "[3.5.1.10, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.8, )"
