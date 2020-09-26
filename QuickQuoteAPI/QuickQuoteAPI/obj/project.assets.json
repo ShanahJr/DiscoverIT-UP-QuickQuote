@@ -8821,19 +8821,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shana\\.nuget\\packages\\": {}
+    "C:\\Users\\tosse\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+      "projectUniqueName": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
       "projectName": "QuickQuoteAPI",
-      "projectPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
-      "packagesPath": "C:\\Users\\shana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
+      "projectPath": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+      "packagesPath": "C:\\Users\\tosse\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tosse\\Desktop\\Gradhack\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\shana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tosse\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8898,7 +8898,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
