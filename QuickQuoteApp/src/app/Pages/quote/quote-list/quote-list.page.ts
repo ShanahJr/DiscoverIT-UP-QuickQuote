@@ -85,6 +85,10 @@ export class QuoteListPage implements OnInit {
           this.LabelList = res;
           console.log(res);
 
+          document
+            .getElementById("QuoteListModal")
+            .setAttribute("style", "z-index : 99");
+
           var myModal = new Bootstrap.Modal(
             document.getElementById("QuoteListModal")
           );
