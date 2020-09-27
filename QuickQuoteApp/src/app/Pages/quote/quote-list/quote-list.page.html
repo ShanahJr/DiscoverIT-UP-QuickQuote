@@ -1,26 +1,75 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Quote List</ion-title>
+    <ion-title> Quote List </ion-title>
+    <ion-buttons slot='start'>
+      <ion-menu-button ion-button menuToggle>
+        <ion-icon name='menu'></ion-icon>
+      </ion-menu-button>
+      <ion-back-button>
+        <ion-icon name='arrow-back-outline'></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class='verticle-align'>
-  <ion-item>
-     <IonLabel>
-        Product 01: Laptop
-      </IonLabel>
-  <!--  <section style="text-align: end;">
-        <button >
-          <ion-icon name='add'></ion-icon>
-         </button>
-         <button>
-          <ion-icon name='edit'></ion-icon>
-         </button>
-         <button >
-            <ion-icon name='trash'></ion-icon>
+
+  <!-- <ion-button expand='block' color='primary'>Item Name</ion-button>
+  <ion-button expand='block' color='primary'>Item Name</ion-button>
+  <ion-button expand='block' color='primary'>Item Name</ion-button> -->
+
+
+  <!-- <ion-fab vertical="middle" horizontal="middle" >
+    <ion-fab-button color='primary'>
+      <ion-icon name='add'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical='20%'  horizontal='end' >
+    <ion-fab-button  color='success'>
+      <ion-icon name='checkmark-outline'></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <!-- <div class="imageContainer">
+    <img [src]="transformer()" />
+    <ion-fab vertical="bottom" horizontal="end" class="BottomRight">
+      <input type="file" #fileInput (change)="SendPictureToAPI($event)" hidden="true" accept="image/*" />
+      <ion-fab-button (click)="selectImageSource()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div> -->
+
+  <ion-fab horizontal='end' vertical='bottom' slot='fixed'>
+    <input type="file" #fileInput (change)="SendPictureToAPI($event)" hidden="true" accept="image/*" />
+    <ion-fab-button color='primary' (click)="selectImageSource()">
+      <ion-icon name='add'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div id="QuoteListModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-      </section> -->   
-</ion-item>
-  </ion-card>
+        </div>
+        <div class="modal-body">
+          <ion-list>
+            <ion-item *ngFor="let label of LabelList" (click)="quote.quoteID">
+              <ion-label>{{label.labelName}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </ion-content>

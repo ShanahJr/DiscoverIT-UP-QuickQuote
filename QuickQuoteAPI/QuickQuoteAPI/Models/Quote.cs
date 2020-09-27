@@ -13,6 +13,7 @@ namespace QuickQuoteAPI.Models
         public int QuoteID { get; set; }
         [ForeignKey("User")]
         public int UserID { get; set; }
+        public DateTime QuoteDate { get; set; }
         public User User { get; set; }
     }
 }

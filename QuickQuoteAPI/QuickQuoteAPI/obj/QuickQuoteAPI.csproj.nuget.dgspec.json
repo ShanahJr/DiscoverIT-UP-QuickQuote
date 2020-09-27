@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {}
+    "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {
+    "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+        "projectUniqueName": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
         "projectName": "QuickQuoteAPI",
-        "projectPath": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
-        "packagesPath": "C:\\Users\\rayfr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rayfr\\Source\\Repos\\ShanahJr\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
+        "projectPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\QuickQuoteAPI.csproj",
+        "packagesPath": "C:\\Users\\shana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shana\\Projects\\DiscoverIT-UP-QuickQuote\\QuickQuoteAPI\\QuickQuoteAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rayfr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,6 +45,10 @@
             "AWSSDK.S3": {
               "target": "Package",
               "version": "[3.5.1.10, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -90,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.7.20366.6\\RuntimeIdentifierGraph.json"
         }
       }
     }

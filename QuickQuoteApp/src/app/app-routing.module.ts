@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/home",
+    redirectTo: "/log-in",
     pathMatch: "full",
   },
   // {
@@ -42,6 +42,10 @@ const routes: Routes = [
     path: "quote",
     loadChildren: () =>
       import("./Pages/quote/quote.module").then((m) => m.QuotePageModule),
+  },
+  {
+    path: 'popover',
+    loadChildren: () => import('./Components/popover/popover.module').then( m => m.PopoverPageModule)
   },
 ];
 

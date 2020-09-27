@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
       url: "/user-profile",
       icon: "person",
     },
+    {
+      title: "Quote",
+      url: "/quote",
+      icon: "cash",
+    },
   ];
 
   constructor(
