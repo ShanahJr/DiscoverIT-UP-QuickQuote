@@ -32,6 +32,7 @@ export class LogInPage implements OnInit {
       .subscribe((res) => {
         localStorage.setItem("UserToken", res.token);
         this.router.navigate(["/home"]);
+        this.userService.UserID = res.userID;
       });
   }
 }

@@ -49,6 +49,19 @@ namespace QuickQuoteAPI.Controllers
             return quote;
         }
 
+        [HttpGet("[action]/{id}")]
+        public async Task<ActionResult<Quote>> GetUserQuotes(int id)
+        {
+            var quotes = await _context.Quote.Where(q => q.UserID == id).ToListAsync();
+
+            if (quotes == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(quotes);
+        }
+
         // PUT: api/Quote/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -87,6 +100,9 @@ namespace QuickQuoteAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Quote>> PostQuote(Quote quote)
         {
+
+            quote.QuoteDate = DateTime.Now;
+
             _context.Quote.Add(quote);
             await _context.SaveChangesAsync();
 
@@ -160,11 +176,20 @@ namespace QuickQuoteAPI.Controllers
 
             try
             {
+                var Labels = new List<LabelVM>();
+
                 DetectLabelsResponse detectLabelsResponse =
                 await rekognitionClient.DetectLabelsAsync(detectlabelsRequest);
                 //Console.WriteLine("Detected labels for " + photo);
                 foreach (Label label in detectLabelsResponse.Labels)
-                    Console.WriteLine("{0}: {1}", label.Name, label.Confidence);
+                {
+                    var item = new LabelVM();
+                    item.LabelName = label.Name;
+                    item.LabelConfidence = label.Confidence.ToString();
+                    Labels.Add(item);
+                }
+                return Ok(Labels);
+                    //Console.WriteLine("{0}: {1}", label.Name, label.Confidence);
             }
             catch (Exception e)
             {

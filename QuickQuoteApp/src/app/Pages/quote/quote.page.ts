@@ -18,6 +18,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { QuoteService } from "../../Services/Quote/quote.service";
 import { FileVM } from "src/app/Models/ViewModels/FileVM";
 import { take } from "rxjs/operators";
+import { Quote } from "src/app/Models/Quote/quote";
 
 @Component({
   selector: "app-quote",
@@ -34,6 +35,7 @@ export class QuotePage implements OnInit {
 
   TheImage: any = null;
   FileString: string = "";
+  QuoteList: Quote[] = [];
 
   constructor(
     //public rekognition: RekognitionClient,
@@ -50,134 +52,22 @@ export class QuotePage implements OnInit {
 
   ngOnInit() {
     //const config = new AWS.Con
+    this.GetQuotes();
   }
 
-  CreateQuote() {}
-
-  transformer() {
-    if (this.isLogoAvailable) {
-      return this.sanitizer.bypassSecurityTrustResourceUrl(
-        "data:image;base64," + this.Logo
-      );
-    } else {
-      return "../../../../assets/NoImage.jpg";
-    }
-  }
-
-  async SendPictureToAPI(event: EventTarget) {
-    const eventObj: MSInputMethodContext = event as MSInputMethodContext;
-    const target: HTMLInputElement = eventObj.target as HTMLInputElement;
-    const file: File = target.files[0];
-
-    let UploadFile = new FileVM();
-    UploadFile.Filename = file.name;
-
-    let reader = new FileReader();
-
-    //console.log("just a place holder");
-
-    reader.readAsDataURL(file);
-
-    reader.onload = () => {
-      //Store base64 encoded representation of file
-      UploadFile.FileAsBase64 = reader.result
-        .toString()
-        .substring(reader.result.toString().indexOf(",") + 1);
-
-      //POST to server
-      this.QuoteService.UploadImage(UploadFile)
-        .pipe(take(1))
-        .subscribe((res) => {
-          console.log("Technically image should be by the API now");
-        });
-    };
-  }
-
-  async ConvertFile(file: File) {
-    let reader = new FileReader();
-
-    console.log("just a place holder");
-
-    reader.readAsDataURL(file);
-
-    reader.onload = () => {
-      return reader.result
-        .toString()
-        .substring(reader.result.toString().indexOf(",") + 1);
-    };
-
-    //let res = reader.result.toString();
-
-    //UploadFile.FileAsBase64 = res.substring(res.indexOf(",") + 1);
-  }
-
-  imgToBase64(img) {
-    debugger;
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    // I think this won't work inside the function from the console
-    img.crossOrigin = "anonymous";
-
-    ctx.drawImage(img, 0, 0);
-
-    return canvas.toDataURL();
-  }
-
-  _handleReaderLoaded(readerEvt) {
-    var binaryString = readerEvt.target.result;
-    this.FileString = btoa(binaryString); // Converting binary string data.
-  }
-
-  async selectImageSource() {
-    const buttons = [
-      {
-        text: "Take Photo",
-        icon: "camera",
-        handler: () => {
-          this.addImage(CameraSource.Camera);
-        },
-      },
-      {
-        text: "Gallery",
-        icon: "image",
-        handler: () => {
-          this.addImage(CameraSource.Photos);
-        },
-      },
-    ];
-
-    // Only allow file selection inside a browser
-    if (!this.plt.is("hybrid")) {
-      buttons.push({
-        text: "Choose a File",
-        icon: "attach",
-        handler: () => {
-          this.fileInput.nativeElement.click();
-        },
+  GetQuotes() {
+    this.QuoteService.GetQuotes()
+      .pipe(take(5))
+      .subscribe((quotes) => {
+        console.log(quotes);
+        this.QuoteList = quotes;
       });
-    }
+  }
 
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: "Select Image Source",
-      buttons,
+  CreateQuote() {
+    this.QuoteService.CreateQuote().subscribe((quote) => {
+      this.QuoteService.QuoteID = quote.QuoteID;
+      this.router.navigate(["/quote/quote-list"]);
     });
-    await actionSheet.present();
-  } // End of select image source
-
-  async addImage(source: CameraSource) {
-    console.log("I clicked on Gallery");
-    var image = await Camera.getPhoto({
-      quality: 80,
-      allowEditing: false,
-      resultType: CameraResultType.Base64,
-      source,
-    });
-    this.isLogoAvailable = true;
-    this.Logo = image.base64String;
-    console.log(this.Logo);
-    // this.InjectImage();
   }
 }

@@ -127,7 +127,7 @@ namespace QuickQuoteAPI.Controllers
                 if (user.IsEmailConfirmed == true)
                 {
                     var tokenString = GenerateJSONWebToken(user);
-                    response = Ok(new { token = tokenString });
+                    response = Ok(new { token = tokenString , UserID = user.UserID });
                 }
                 else
                 {

@@ -1,16 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>My Quotes</ion-title>
+    <ion-title> My Quotes </ion-title>
+    <ion-buttons slot='start'>
+      <ion-menu-button ion-button menuToggle>
+        <ion-icon name='menu'></ion-icon>
+      </ion-menu-button>
+      <ion-back-button>
+        <ion-icon name='arrow-back-outline'></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <!-- <ion-button expand='block' color='primary'>Quote Date</ion-button>
   <ion-button expand='block' color='primary'>Quote Date</ion-button>
-  <ion-button expand='block' color='primary'>Quote Date</ion-button>
-  <ion-button expand='block' color='primary'>Quote Date</ion-button>
+  <ion-button expand='block' color='primary'>Quote Date</ion-button> -->
 
-  <div class="imageContainer">
+  <!-- <div class="imageContainer">
     <img [src]="transformer()" />
     <ion-fab vertical="bottom" horizontal="end" class="BottomRight">
       <input type="file" #fileInput (change)="SendPictureToAPI($event)" hidden="true" accept="image/*" />
@@ -20,7 +28,14 @@
     </ion-fab>
   </div>
 
-  <button (click)="SendPictureToAPI()"></button>
+  <button (click)="SendPictureToAPI()"></button> -->
+
+  <ion-list>
+    <ion-item *ngFor="let quote of QuoteList" (click)="quote.quoteID">
+      <ion-label>{{quote.quoteDate}}</ion-label>
+    </ion-item>
+
+  </ion-list>
 
   <ion-fab horizontal='end' vertical='bottom' slot='fixed'>
     <ion-fab-button color='primary' (click)="CreateQuote()">

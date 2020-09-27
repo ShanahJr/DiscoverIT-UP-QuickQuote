@@ -37,9 +37,18 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "./node_modules/bootstrap/scss/bootstrap.scss"
+              },
+              {
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
               }
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/@popperjs/core/dist/umd/popper.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -128,9 +137,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

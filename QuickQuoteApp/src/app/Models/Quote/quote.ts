@@ -3,4 +3,5 @@ export class Quote {
 
   QuoteID: number;
   QuoteDate: Date;
+  UserID: number;
 }

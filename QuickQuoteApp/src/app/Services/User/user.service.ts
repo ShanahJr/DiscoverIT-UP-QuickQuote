@@ -10,6 +10,9 @@ import { LoginVM } from "src/app/Models/ViewModels/LoginVM";
 export class UserService {
   public RootUrl: string;
   public httpOptions: any;
+
+  public UserID: number;
+
   constructor(private http: HttpClient) {
     this.RootUrl = "https://localhost:5001/api/User/";
     this.httpOptions = {
